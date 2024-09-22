@@ -10,7 +10,7 @@ import Login from './pages/Login';
 import PageNotFound from './pages/PageNotFound';
 import AppLayout from './ui/AppLayout';
 
-function App() {
+export default function App() {
   return (
     <>
       <GlobalStyles />
@@ -33,4 +33,51 @@ function App() {
   );
 }
 
-export default App;
+// export default App;
+// import { useState } from "react";
+
+// const data = [
+//   { question: "question1", answer: "answer1", id: 0, status: "false" },
+//   { question: "question2", answer: "answer2", id: 1, status: "false" },
+//   { question: "question3", answer: "answer3", id: 2, status: "false" },
+//   { question: "question4", answer: "answer4", id: 3, status: "false" },
+// ];
+
+// export default function App() {
+//   const [selected, setSelected] = useState(null);
+
+//   return (
+//     <div
+//       className="App"
+//       style={{ display: "flex", flexDirection: "column", gap: "2rem" }}
+//     >
+//       {data.map((item, index) => (
+//         <AccordianItem
+//           item={item}
+//           index={index}
+//           selected={selected}
+//           key={crypto.randomUUID()}
+//           setSelected={setSelected}
+//         />
+//       ))}
+//     </div>
+//   );
+// }
+
+// function AccordianItem({ item, index, selected, setSelected }) {
+//   const isOpen = selected === index;
+//   console.log(isOpen)
+//   console.log(index, selected);
+//   const handlePress = function () {
+//     setSelected(() => (isOpen ? null : index));
+//   };
+//   return (
+//     <div
+//       style={{ border: "1px solid black", fontSize: "24px" }}
+//       onClick={handlePress}
+//     >
+//       <p> {item.question}</p>
+//       {isOpen ? <p>{item.answer}</p> : ""}
+//     </div>
+//   );
+// }
