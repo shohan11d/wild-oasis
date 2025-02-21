@@ -46,9 +46,9 @@ function BookingDetail() {
   // We return a fragment so that these elements fit into the page's layout
   return (
     <>
-      <Row type='horizontal'>
+      <Row type="horizontal">
         <HeadingGroup>
-          <Heading type='h1'>Booking #{bookingId}</Heading>
+          <Heading type="h1">Booking #{bookingId}</Heading>
           <Tag type={statusToTagName[status]}>{status.replace('-', ' ')}</Tag>
         </HeadingGroup>
         <ButtonText onClick={moveBack}>&larr; Back</ButtonText>
@@ -70,12 +70,12 @@ function BookingDetail() {
         )}
 
         <Modal>
-          <Modal.Toggle opens='delete'>
-            <Button variation='danger'>Delete booking</Button>
+          <Modal.Toggle opens="delete">
+            <Button variation="danger">Delete booking</Button>
           </Modal.Toggle>
-          <Modal.Window name='delete'>
+          <Modal.Window name="delete">
             <ConfirmDelete
-              resource='booking'
+              resource="booking"
               // These options will be passed wherever the function gets called, and they determine what happens next
               onConfirm={(options) => deleteBooking(bookingId, options)}
               disabled={isDeleting}
@@ -83,7 +83,7 @@ function BookingDetail() {
           </Modal.Window>
         </Modal>
 
-        <Button variation='secondary' onClick={moveBack}>
+        <Button variation="secondary" onClick={moveBack}>
           Back
         </Button>
       </ButtonGroup>
