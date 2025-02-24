@@ -3,7 +3,7 @@ import Navigation from './Navigation';
 
 function Layout() {
   return (
-    <div className="grid grid-cols-2">
+    <div className="flex">
       <Navigation />
       <div>
         <Outlet />
