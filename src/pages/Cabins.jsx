@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import { getCabins } from '../services/apiCabin';
 import CabinRows from '../ui/CabinRows';
 import CabinHeader from '../ui/CabinHeader';
@@ -13,6 +13,7 @@ function Cabins() {
     queryFn: getCabins,
   });
 
+ 
   if (isLoading) return <div>Loading...</div>;
   return (
     <div>
@@ -21,7 +22,7 @@ function Cabins() {
         <p>filter/sort</p>
       </div>
       <div>
-        <CabinHeader/>
+        <CabinHeader />
         {cabins.map((cabin) => (
           <CabinRows cabin={cabin} key={cabin.id} />
         ))}
