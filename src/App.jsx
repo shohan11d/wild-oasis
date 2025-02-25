@@ -30,11 +30,7 @@ function App() {
             <Route index element={<Home />} />
             <Route path="bookings" element={<Bookings />} />
             <Route path="cabins" element={<Cabins />} />
-            <Route path="users" element={<Users />}>
-              <Route>
-                <Route path=":id" element={<Shohan />} />
-              </Route>
-            </Route>
+            <Route path="users" element={<Users />}/>
             <Route path="settings" element={<Settings />} />
           </Route>
           <Route path="*" element={<PageNotFound />} />
@@ -51,14 +47,13 @@ function App() {
           error: {
             duration: 3000,
           },
-          style:{
+          style: {
             fontSize: '16px',
             maxWidth: '100px',
             padding: '10px',
             backgroundColor: '#035054',
-            color: "#ffffff"
-
-          }
+            color: '#ffffff',
+          },
         }}
       />
     </QueryClientProvider>

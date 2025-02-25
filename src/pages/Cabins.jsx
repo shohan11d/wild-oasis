@@ -12,6 +12,7 @@ function Cabins() {
     queryKey: ['cabins'],
     queryFn: getCabins,
   });
+  console.log(cabins)
 
  
   if (isLoading) return <div>Loading...</div>;
