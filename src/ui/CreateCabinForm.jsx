@@ -1,10 +1,26 @@
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useForm } from 'react-hook-form';
 import { Form } from 'react-router';
+import { createCabin } from '../services/apiCabin';
+import toast from 'react-hot-toast';
 
 function CreateCabinForm() {
-  const { register, handleSubmit } = useForm();
+  const queryClient = useQueryClient();
+
+  const { mutate, isLoading: isCreating } = useMutation({
+    mutationFn: createCabin,
+    onSuccess: () => {
+      toast.success('New Cabin successfully created');
+      queryClient.invalidateQueries({ queryKey: ['cabins'] });
+      reset();
+    },
+    onError: (err) => toast.error(err.message),
+  });
+
+  const { register, handleSubmit, reset } = useForm();
+
   function onSubmit(data) {
-    console.log(data);
+    mutate(data);
   }
   return (
     <div>
@@ -55,7 +71,6 @@ function CreateCabinForm() {
           <textarea
             className="border"
             name=""
-          
             id="description"
             {...register('description')}
           ></textarea>
@@ -69,7 +84,11 @@ function CreateCabinForm() {
             {...register('discount')}
           />
         </div>
-        <button className="p-2 bg-blue-400 rounded-full " type="submit">
+        <button
+          disabled={isCreating}
+          className="p-2 bg-blue-400 rounded-full "
+          type="submit"
+        >
           submit
         </button>
       </form>
