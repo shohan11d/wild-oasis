@@ -2,6 +2,7 @@ import { useMutation, useQuery } from '@tanstack/react-query';
 import { getCabins } from '../services/apiCabin';
 import CabinRows from '../ui/CabinRows';
 import CabinHeader from '../ui/CabinHeader';
+import CreateCabinForm from '../ui/CreateCabinForm';
 
 function Cabins() {
   const {
@@ -12,9 +13,8 @@ function Cabins() {
     queryKey: ['cabins'],
     queryFn: getCabins,
   });
-  console.log(cabins)
+  console.log(cabins);
 
- 
   if (isLoading) return <div>Loading...</div>;
   return (
     <div>
@@ -27,6 +27,7 @@ function Cabins() {
         {cabins.map((cabin) => (
           <CabinRows cabin={cabin} key={cabin.id} />
         ))}
+        <CreateCabinForm />
       </div>
     </div>
   );

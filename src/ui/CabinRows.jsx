@@ -31,7 +31,6 @@ function CabinRows({ cabin }) {
           Delete
         </button>
       </div>
-      <CreateCabinForm/>
     </div>
   );
 }
