@@ -21,11 +21,15 @@ function CreateCabinForm() {
   function onSubmit(data) {
     mutate(data);
   }
+
+  function onError(errors) {
+    console.log(errors);
+  }
   return (
     <div>
       <form
         className="space-y-4 bg-gray-400 border p-4"
-        onSubmit={handleSubmit(onSubmit)}
+        onSubmit={handleSubmit(onSubmit, onError)}
       >
         <div className="flex gap-5">
           <label htmlFor="name">Cabin Name</label>
@@ -33,7 +37,9 @@ function CreateCabinForm() {
             className="border"
             type="text"
             id="name"
-            {...register('name')}
+            {...register('name', {
+              required: 'Name is required',
+            })}
           />
         </div>
         <div className="flex gap-5">
@@ -42,7 +48,9 @@ function CreateCabinForm() {
             className="border"
             type="number"
             id="maxCapacity"
-            {...register('maxCapacity')}
+            {...register('maxCapacity', {
+              required: 'Maximum capacity is required',
+            })}
           />
         </div>
 
@@ -52,7 +60,9 @@ function CreateCabinForm() {
             className="border"
             type="text"
             id="regularPrice"
-            {...register('regularPrice')}
+            {...register('regularPrice', {
+              required: 'Maximum capacity is required',
+            })}
           />
         </div>
 
@@ -71,7 +81,9 @@ function CreateCabinForm() {
             className="border"
             name=""
             id="description"
-            {...register('description')}
+            {...register('description', {
+              required: 'Description is required',
+            })}
           ></textarea>
         </div>
         <div className="flex gap-5">
@@ -80,7 +92,9 @@ function CreateCabinForm() {
             className="border"
             type="number"
             id="discount"
-            {...register('discount')}
+            {...register('discount', {
+              required: 'discount  is required',
+            })}
           />
         </div>
         <button
