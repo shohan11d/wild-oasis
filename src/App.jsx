@@ -5,7 +5,6 @@ import Cabins from './pages/Cabins';
 import Users from './pages/Users';
 import Settings from './pages/Settings';
 import Layout from './ui/Layout';
-import Shohan from './ui/Shohan';
 import PageNotFound from './PageNotFound';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
