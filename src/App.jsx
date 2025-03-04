@@ -1,62 +1,35 @@
-import { BrowserRouter, Route, Routes } from 'react-router';
-import Home from './pages/Home';
-import Bookings from './pages/Bookings';
-import Cabins from './pages/Cabins';
-import Users from './pages/Users';
-import Settings from './pages/Settings';
-import Layout from './ui/Layout';
-import PageNotFound from './PageNotFound';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import { Toaster } from 'react-hot-toast';
-
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      staleTime: 0,
-    },
-  },
-});
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
 
 function App() {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <ReactQueryDevtools initialIsOpen={false} />
+  const [count, setCount] = useState(0)
 
-      <BrowserRouter>
-        <Routes>
-          <Route element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="bookings" element={<Bookings />} />
-            <Route path="cabins" element={<Cabins />} />
-            <Route path="users" element={<Users />}/>
-            <Route path="settings" element={<Settings />} />
-          </Route>
-          <Route path="*" element={<PageNotFound />} />
-        </Routes>
-      </BrowserRouter>
-      <Toaster
-        position="top-center"
-        gutter={12}
-        containerStyle={{ margin: '8px' }}
-        toastOptions={{
-          success: {
-            duration: 3000,
-          },
-          error: {
-            duration: 3000,
-          },
-          style: {
-            fontSize: '16px',
-            maxWidth: '100px',
-            padding: '10px',
-            backgroundColor: '#035054',
-            color: '#ffffff',
-          },
-        }}
-      />
-    </QueryClientProvider>
-  );
+  return (
+    <>
+      <div>
+        <a href="https://vite.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+      </div>
+      <h1>Vite + React</h1>
+      <div className="card">
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+        <p>
+          Edit <code>src/App.jsx</code> and save to test HMR
+        </p>
+      </div>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
+    </>
+  )
 }
 
-export default App;
+export default App
