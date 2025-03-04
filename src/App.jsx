@@ -1,5 +1,12 @@
+import AppLayout from './components/AppLayout';
+import Logo from './assets/react.svg';
 function App() {
-  return <div className="underline">Hello world</div>;
+  return (
+    <div>
+ 
+      <AppLayout />
+    </div>
+  );
 }
 
 export default App;
