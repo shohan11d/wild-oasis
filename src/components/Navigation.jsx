@@ -7,6 +7,7 @@ import {
   AppWindow,
 } from 'lucide-react';
 
+console.log()
 import Logo from '../assets/logo.png';
 function Navigation() {
   return (
