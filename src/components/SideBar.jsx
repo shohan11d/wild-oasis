@@ -7,11 +7,10 @@ import {
   AppWindow,
 } from 'lucide-react';
 
-console.log()
 import Logo from '../assets/logo.png';
-function Navigation() {
+function SideBar() {
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex p-5 md:p-10   border-r border-gray-200/10  flex-col items-center">
       <img
         src={Logo}
         height="50px"
@@ -80,4 +79,4 @@ function Navigation() {
   );
 }
 
-export default Navigation;
+export default SideBar;
