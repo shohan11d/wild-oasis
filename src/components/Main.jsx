@@ -1,11 +1,11 @@
+import { Outlet } from 'react-router';
 import Header from './Header';
-import ViewPort from './ViewPort';
 
 function Main() {
   return (
-    <div className='w-full'>
+    <div className="w-full">
       <Header />
-      <ViewPort />
+      <Outlet />
     </div>
   );
 }
