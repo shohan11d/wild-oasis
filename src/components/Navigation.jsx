@@ -21,7 +21,7 @@ function Navigation() {
         <span>হোম</span>
       </NavLink>
       <NavLink
-        className="flex gap-3 py-2 hover:text-blue-600 pl-2 pr-20  bg-gray-800 rounded-sm"
+        className="flex gap-3 py-2 hover:text-blue-600 pl-2 pr-20   rounded-sm"
         to="/bookings"
       >
         <span>
@@ -30,7 +30,7 @@ function Navigation() {
         <span>বুকিং</span>
       </NavLink>{' '}
       <NavLink
-        className="flex gap-3 py-2 hover:text-blue-600 pl-2 pr-20  bg-gray-800 rounded-sm"
+        className="flex gap-3 py-2 hover:text-blue-600 pl-2 pr-20   rounded-sm"
         to="/cabins"
       >
         <span>
@@ -39,7 +39,7 @@ function Navigation() {
         <span>কেবিন</span>
       </NavLink>{' '}
       <NavLink
-        className="flex gap-3 py-2 hover:text-blue-600 pl-2 pr-20  bg-gray-800 rounded-sm"
+        className="flex gap-3 py-2 hover:text-blue-600 pl-2 pr-20   rounded-sm"
         to="/users"
       >
         <span>
@@ -48,7 +48,7 @@ function Navigation() {
         <span>ব্যবহারকারী</span>
       </NavLink>{' '}
       <NavLink
-        className="flex gap-3 py-2 hover:text-blue-600 pl-2 pr-20  bg-gray-800 rounded-sm"
+        className="flex gap-3 py-2 hover:text-blue-600 pl-2 pr-20   rounded-sm"
         to="/settings"
       >
         <span>

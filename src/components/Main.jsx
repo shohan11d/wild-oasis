@@ -3,7 +3,7 @@ import Header from './Header';
 
 function Main() {
   return (
-    <div className="w-full">
+    <div className="w-full ">
       <Header />
       <Outlet />
     </div>
