@@ -17,7 +17,6 @@ A feature-rich booking management application built with **React** and **TypeScr
 - **Frontend:** React, TypeScript, React Query, React Router
 - **State Management:** React Context API
 - **Styling:** Styled Components / CSS Modules
-- **Data Fetching:** Axios
 - **Testing:** Jest (if applicable)
 - **Deployment:** Vercel / Netlify
 
