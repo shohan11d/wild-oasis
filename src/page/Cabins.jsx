@@ -1,5 +1,13 @@
-import CabinsRow from "../components/CabinsRow";
+import { useQuery } from '@tanstack/react-query';
+import CabinsRow from '../components/CabinsRow';
+import getCabins from '../api/apiCabin';
 function Cabins() {
+  const {
+    data: cabinsData,
+    isLoading,
+    error,
+  } = useQuery({ queryKey: ['cabins'], queryFn: getCabins });
+  if (isLoading) return <div>Loading...</div>;
   return (
     <div className="m-5 max-w-[700px]">
       <div className="flex  justify-between py-5    ">
@@ -12,10 +20,10 @@ function Cabins() {
           <h2 className="py-2 ">Discount</h2>
           <h2 className="py-2 ">Price</h2>
         </div>
-        <CabinsRow/>
-        <CabinsRow/>
-        <CabinsRow/>
-        <CabinsRow/>
+        {cabinsData?.map((cabin) => (
+          <CabinsRow cabin={cabin} key={cabin.id} />
+        ))}
+       
       </div>
     </div>
   );
