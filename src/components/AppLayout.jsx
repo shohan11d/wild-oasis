@@ -1,16 +1,13 @@
-import Header from "./Header";
-import Navigation from "./Navigation";
+import Header from './Header';
+import Main from './Main';
+import SideBar from './SideBar';
 
 function AppLayout() {
   return (
-    <div>
-      <div className="grid grid-cols-2">
-        <Navigation/>
-        <div>
-          <Header/>
-
-          <main>pages</main>
-        </div>
+    <div className="">
+      <div className="flex h-dvh ">
+        <SideBar />
+        <Main />
       </div>
     </div>
   );
