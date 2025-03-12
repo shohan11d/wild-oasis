@@ -9,6 +9,7 @@ import Users from './page/Users';
 import Settings from './page/Settings';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { Toaster } from 'react-hot-toast';
 function App() {
   const queryClient = new QueryClient({
     defaultOptions: {
@@ -22,7 +23,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
       <div>
-        <Routes>n
+        <Routes>
           <Route path="/" element={<AppLayout />}>
             <Route path="home" element={<Home />}></Route>
             <Route path="bookings" element={<Bookings />}></Route>
@@ -32,6 +33,7 @@ function App() {
           </Route>
         </Routes>
       </div>
+      <Toaster/>
     </QueryClientProvider>
   );
 }
