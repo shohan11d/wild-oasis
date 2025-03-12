@@ -3,7 +3,6 @@ import { deleteCabin } from '../api/apiCabin';
 import toast from 'react-hot-toast';
 
 function CabinsRow({ cabin }) {
-  console.log(cabin);
   const { id, name, description, maxCapacity, discount } = cabin;
   const queryClient = useQueryClient();
   const { isLoading: isDeleting, mutate } = useMutation({

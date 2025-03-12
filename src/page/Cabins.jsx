@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import CabinsRow from '../components/CabinsRow';
 import getCabins from '../api/apiCabin';
+import Form from '../components/Form';
 function Cabins() {
   const {
     data: cabinsData,
@@ -23,7 +24,7 @@ function Cabins() {
         {cabinsData?.map((cabin) => (
           <CabinsRow cabin={cabin} key={cabin.id} />
         ))}
-       
+      <Form/> 
       </div>
     </div>
   );
