@@ -1,19 +1,21 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { createCabin } from '../api/apiCabin';
+import { createEditCabin } from '../api/apiCabin';
 import toast from 'react-hot-toast';
 
-function Form() {
+function Form({ cabinToEdit = {} }) {
+  const { id: editId, ...editValues } = cabinToEdit;
+  const isEditSession = Boolean(editId);
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm();
+  } = useForm({ defaultValues: isEditSession ? editValues : {} });
   const queryClient = useQueryClient();
   const { mutate, isLoading: isCreating } = useMutation({
-    mutationFn: createCabin,
+    mutationFn: createEditCabin,
     onSuccess: () => {
       toast.success('Cabin created successfully');
       queryClient.invalidateQueries('cabins');
@@ -82,13 +84,13 @@ function Form() {
       <div className="grid grid-cols-[.5fr_2fr]">
         <label htmlFor="image">image</label>
         <input
-          type="text"
+          type="file"
           id="image"
           className="border"
           {...register('image')}
         />
       </div>
-      <input type="submit"  />
+      <input type="submit" />
     </form>
   );
 }

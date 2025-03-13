@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import CabinsRow from '../components/CabinsRow';
 import getCabins from '../api/apiCabin';
 import Form from '../components/Form';
+import ModalWindow from '../components/ModalWindow';
 function Cabins() {
   const {
     data: cabinsData,
@@ -24,7 +25,15 @@ function Cabins() {
         {cabinsData?.map((cabin) => (
           <CabinsRow cabin={cabin} key={cabin.id} />
         ))}
-      <Form/> 
+
+        <button className="btn">New Cabin</button>
+        {/* <div className="fixed top-0 left-0 w-full h-dvh bg-blue-100 backdrop:blur-lg backdrop:bg-gray-900/80 z-50 ">
+          <ModalWindow>
+            <Form />
+
+            <button className="btn">X</button>
+          </ModalWindow>
+        </div> */}
       </div>
     </div>
   );

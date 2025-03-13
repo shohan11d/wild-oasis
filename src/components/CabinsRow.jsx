@@ -1,8 +1,11 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { deleteCabin } from '../api/apiCabin';
 import toast from 'react-hot-toast';
+import { useState } from 'react';
+import Form from './Form';
 
 function CabinsRow({ cabin }) {
+  const [show, setShow] = useState(false);
   const { id, name, description, maxCapacity, discount } = cabin;
   const queryClient = useQueryClient();
   const { isLoading: isDeleting, mutate } = useMutation({
@@ -23,7 +26,15 @@ function CabinsRow({ cabin }) {
         <p>{description}</p>
         <p>{discount} </p>
         <div className="flex gap-2 items-center">
-          <p>250</p>
+          <button className="bg-blue-400 rounded-full py-1 px-2">
+            Duplicate
+          </button>
+          <button
+            onClick={() => setShow((show) => !show)}
+            className="bg-blue-400 rounded-full py-1 px-2"
+          >
+            Edit
+          </button>
           <button
             disabled={isDeleting}
             onClick={() => mutate(id)}
@@ -33,8 +44,7 @@ function CabinsRow({ cabin }) {
           </button>
         </div>
       </div>
-
-      <p></p>
+      {show && <Form cabinToEdit={cabin} />}
     </div>
   );
 }
